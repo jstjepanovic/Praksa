@@ -1,0 +1,13 @@
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.csprojAssemblyReference.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.AssemblyInfoInputs.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.AssemblyInfo.cs
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.csproj.CoreCompileInputs.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\bin\Debug\netcoreapp3.1\PraksaDay1.exe
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\bin\Debug\netcoreapp3.1\PraksaDay1.deps.json
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\bin\Debug\netcoreapp3.1\PraksaDay1.runtimeconfig.json
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\bin\Debug\netcoreapp3.1\PraksaDay1.runtimeconfig.dev.json
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\bin\Debug\netcoreapp3.1\PraksaDay1.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\bin\Debug\netcoreapp3.1\PraksaDay1.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Day1\PraksaDay1\obj\Debug\netcoreapp3.1\PraksaDay1.genruntimeconfig.cache
