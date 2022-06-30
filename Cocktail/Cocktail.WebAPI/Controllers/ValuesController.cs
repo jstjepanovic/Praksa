@@ -9,7 +9,7 @@ namespace Cocktail.WebAPI.Controllers
     {
         // GET all
         [HttpGet]
-        [Route("get_all_cocktails")]
+        [Route("get_all")]
         public HttpResponseMessage GetAll()
         {
             return Request.CreateResponse(HttpStatusCode.OK, CocktailSetup.GetAll());
@@ -17,7 +17,7 @@ namespace Cocktail.WebAPI.Controllers
 
         // GET one
         [HttpGet]
-        [Route("get_one_cocktail")]
+        [Route("get_one_coc")]
         public HttpResponseMessage Get(int id)
         {
             var cocktail = CocktailSetup.Get(id);
@@ -30,7 +30,7 @@ namespace Cocktail.WebAPI.Controllers
 
         // POST 
         [HttpPost]
-        [Route("add_cocktail")]
+        [Route("add_coc")]
         public HttpResponseMessage Post(CocktailClass cocktail)
         {
             CocktailSetup.Add(cocktail);
@@ -39,7 +39,7 @@ namespace Cocktail.WebAPI.Controllers
 
         // PUT 
         [HttpPut]
-        [Route("update_cocktail")]
+        [Route("update_coc")]
         public HttpResponseMessage Update(int id, CocktailClass cocktail)
         {
             if (id != cocktail.Id)
@@ -56,7 +56,7 @@ namespace Cocktail.WebAPI.Controllers
 
         // DELETE 
         [HttpDelete]
-        [Route("delete_cocktail")]
+        [Route("delete_coc")]
         public HttpResponseMessage Delete(int id)
         {
             var cocktail = CocktailSetup.Get(id);
