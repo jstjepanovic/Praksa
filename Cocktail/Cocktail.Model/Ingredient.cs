@@ -1,4 +1,4 @@
-﻿namespace Cocktail.WebAPI.Models
+﻿namespace Cocktail.Model
 {
     public class Ingredient
     {
@@ -9,6 +9,12 @@
         public Ingredient(System.Guid guid, string name, string color)
         {
             this.IngredientID = guid;
+            this.Name = name;
+            this.Color = color;
+        }
+
+        public Ingredient(string name, string color)
+        {
             this.Name = name;
             this.Color = color;
         }

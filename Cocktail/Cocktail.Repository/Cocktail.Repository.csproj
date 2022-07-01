@@ -41,7 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IngredientRepository.cs" />
+    <Compile Include="CocktailRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cocktail.Common\Cocktail.Common.csproj">
+      <Project>{49dbbc3d-8085-462e-8f4e-b88b2f939402}</Project>
+      <Name>Cocktail.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cocktail.Model\Cocktail.Model.csproj">
+      <Project>{9C96A0C7-28A5-4CBA-AF32-9CADB52561C9}</Project>
+      <Name>Cocktail.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

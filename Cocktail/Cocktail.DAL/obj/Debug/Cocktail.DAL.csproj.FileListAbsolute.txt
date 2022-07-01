@@ -1,0 +1,5 @@
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\Cocktail.DAL.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\Cocktail.DAL.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\obj\Debug\Cocktail.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\obj\Debug\Cocktail.DAL.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\obj\Debug\Cocktail.DAL.pdb

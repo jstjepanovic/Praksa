@@ -5,7 +5,7 @@ using Cocktail.WebAPI.Models;
 
 namespace Cocktail.WebAPI.Controllers
 {
-    public class ValuesController : ApiController
+    public class TestController : ApiController
     {
         // GET all
         [HttpGet]

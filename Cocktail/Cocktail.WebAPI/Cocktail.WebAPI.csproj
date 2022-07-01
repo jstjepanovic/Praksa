@@ -157,12 +157,13 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\CocktailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\IngredientController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Ingredient.cs" />
-    <Compile Include="Models\CocktailDB.cs" />
+    <Compile Include="Models\IngredientRest.cs" />
+    <Compile Include="Models\CocktailRest.cs" />
     <Compile Include="Models\CocktailClass.cs" />
     <Compile Include="Models\CocktailSetup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -249,6 +250,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cocktail.Model\Cocktail.Model.csproj">
+      <Project>{9C96A0C7-28A5-4CBA-AF32-9CADB52561C9}</Project>
+      <Name>Cocktail.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cocktail.Service\Cocktail.Service.csproj">
+      <Project>{4BBC359C-D5D5-454C-B089-C787499C7E4C}</Project>
+      <Name>Cocktail.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

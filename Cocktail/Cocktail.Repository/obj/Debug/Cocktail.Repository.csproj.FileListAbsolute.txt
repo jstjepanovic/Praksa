@@ -1,0 +1,11 @@
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Repository.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Repository.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Model.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Model.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\obj\Debug\Cocktail.Repository.csprojAssemblyReference.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\obj\Debug\Cocktail.Repository.csproj.CoreCompileInputs.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\obj\Debug\Cocktail.Repository.csproj.CopyComplete
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\obj\Debug\Cocktail.Repository.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\obj\Debug\Cocktail.Repository.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Common.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Common.pdb

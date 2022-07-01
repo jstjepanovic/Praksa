@@ -168,3 +168,9 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\System.Web.WebP
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Antlr3.Runtime.pdb
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\obj\Debug\Cocktail.WebAPI.csproj.CopyComplete
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Model.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Service.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Repository.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Model.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Service.pdb
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Repository.pdb

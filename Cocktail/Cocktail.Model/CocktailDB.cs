@@ -1,5 +1,4 @@
-﻿
-namespace Cocktail.WebAPI.Models
+﻿namespace Cocktail.Model
 {
     public class CocktailDB
     {
@@ -10,6 +9,12 @@ namespace Cocktail.WebAPI.Models
         public CocktailDB(System.Guid guid, string name, double price)
         {
             this.CocktailID = guid;
+            this.Name = name;
+            this.Price = price;
+        }
+
+        public CocktailDB(string name, double price)
+        {
             this.Name = name;
             this.Price = price;
         }

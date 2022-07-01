@@ -29,7 +29,7 @@ CREATE TABLE dbo.Ingredient
 (
 	Ingredient_ID uniqueidentifier not null primary key,
 	Name [nvarchar](50)  not null,
-	Color [nvarchar](25)
+	Color [nvarchar](25) not null
 );
 GO
 
@@ -57,8 +57,8 @@ select * from dbo.Cocktail;
 
 insert into dbo.Ingredient (Ingredient_ID, Name, Color) values
 (NEWID(), 'Whiskey', 'Brown'),
-(NEWID(), 'Vodka', null),
-(NEWID(), 'Gin', null),
+(NEWID(), 'Vodka', 'Colorless'),
+(NEWID(), 'Gin', 'Colorless'),
 (NEWID(), 'Vermouth', 'White/Red'),
 (NEWID(), 'Olive', 'Green'),
 (NEWID(), 'Tomato Juice', 'Red'),
@@ -101,4 +101,6 @@ from dbo.Cocktail join dbo.Cocktail_Ingredient_Junction on (dbo.Cocktail.Cocktai
 
 select * from dbo.Cocktail where dbo.Cocktail.Name like 'M%' or dbo.Cocktail.Name like 'W%';
 
-
+select dbo.Ingredient.Ingredient_ID, dbo.Ingredient.Name, Color
+from dbo.Cocktail join dbo.Cocktail_Ingredient_Junction on (dbo.Cocktail.Cocktail_ID = dbo.Cocktail_Ingredient_Junction.Cocktail_ID)
+	join dbo.Ingredient on (dbo.Cocktail_Ingredient_Junction.Ingredient_ID = dbo.Ingredient.Ingredient_ID) where dbo.Cocktail.Name = 'Martini';
