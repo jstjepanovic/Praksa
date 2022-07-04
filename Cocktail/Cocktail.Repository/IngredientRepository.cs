@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace Cocktail.Repository
 {
@@ -10,7 +11,7 @@ namespace Cocktail.Repository
     {
         public string conStr = "Data Source=DESKTOP-RDKIF3O\\SQLEXPRESS;Initial Catalog=PraksaDB;Integrated Security=True"; // connection string
 
-        public int IngredientCount(Guid ingredientID)
+        public async Task<int> IngredientCountAsync(Guid ingredientID)
         {
             SqlConnection con = new SqlConnection(conStr);
             using (con)
@@ -20,9 +21,9 @@ namespace Cocktail.Repository
                     int ingredientCount;
                     try
                     {
-                        con.Open();
+                        await con.OpenAsync();
                         count.Parameters.AddWithValue("@ID", ingredientID);
-                        ingredientCount = (int)count.ExecuteScalar();
+                        ingredientCount = (int)await count.ExecuteScalarAsync();
                         con.Close();
                     }
                     catch
@@ -35,20 +36,20 @@ namespace Cocktail.Repository
             }
         }
 
-        public List<Ingredient> GetAllIngredients()
+        public async Task<List<Ingredient>> GetAllIngredientsAsync()
         {
             SqlConnection con = new SqlConnection(conStr);
             List<Ingredient> ingredientList = new List<Ingredient>();
             using (con)
             {
                 SqlCommand command = new SqlCommand("select * from dbo.Ingredient;", con);
-                con.Open();
+                await con.OpenAsync();
 
-                SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = await command.ExecuteReaderAsync();
 
                 if (reader.HasRows)
                 {
-                    while (reader.Read())
+                    while (await reader.ReadAsync())
                         ingredientList.Add(new Ingredient(reader.GetGuid(0), reader.GetString(1), reader.GetString(2)));
                 }
                 else
@@ -62,10 +63,10 @@ namespace Cocktail.Repository
             }
         }
 
-        public Ingredient GetOneIngredient(Guid ingredientID)
+        public async Task<Ingredient> GetOneIngredientAsync(Guid ingredientID)
         {
             int ingredientCount;
-            ingredientCount = IngredientCount(ingredientID);
+            ingredientCount = await IngredientCountAsync(ingredientID);
 
             if (ingredientCount == 0)
                 throw new Exception("No elements with such ID.");
@@ -83,8 +84,8 @@ namespace Cocktail.Repository
 
                     try
                     {
-                        con.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
+                        await con.OpenAsync();
+                        SqlDataReader reader = await cmd.ExecuteReaderAsync();
                         if (reader.Read())
                         {
                             ingredient = new Ingredient(reader.GetGuid(0), reader.GetString(1), reader.GetString(2));
@@ -103,7 +104,7 @@ namespace Cocktail.Repository
             }
         }
 
-        public Ingredient AddIngredient(Ingredient ingredient)
+        public async Task<Ingredient> AddIngredientAsync(Ingredient ingredient)
         {
             SqlConnection con = new SqlConnection(conStr);
             Guid ingredientId = Guid.NewGuid();
@@ -122,8 +123,8 @@ namespace Cocktail.Repository
 
                     try
                     {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        await con.OpenAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         return new Ingredient (ingredientId, ingredient.Name, ingredient.Color);
                     }
                     catch (SqlException e)
@@ -135,10 +136,10 @@ namespace Cocktail.Repository
             }
         }
 
-        public Ingredient UpdateIngredient(Guid ingredientID, Ingredient ingredient)
+        public async Task<Ingredient> UpdateIngredientAsync(Guid ingredientID, Ingredient ingredient)
         {
             int ingredientCount;
-            ingredientCount = IngredientCount(ingredientID);
+            ingredientCount = await IngredientCountAsync(ingredientID);
 
             if (ingredientCount == 0)
                 throw new Exception("No elements with such ID.");
@@ -156,8 +157,8 @@ namespace Cocktail.Repository
 
                     try
                     {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        await con.OpenAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         return new Ingredient(ingredientID, ingredient.Name, ingredient.Color);
                     }
                     catch (SqlException e)
@@ -168,10 +169,10 @@ namespace Cocktail.Repository
             }
         }
 
-        public void DeleteIngredient(Guid ingredientID)
+        public async Task DeleteIngredientAsync(Guid ingredientID)
         {
             int ingredientCount;
-            ingredientCount = IngredientCount(ingredientID);
+            ingredientCount = await IngredientCountAsync(ingredientID);
 
             if (ingredientCount == 0)
                 throw new Exception("No elements with such ID.");
@@ -186,8 +187,8 @@ namespace Cocktail.Repository
 
                     try
                     {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        await con.OpenAsync();
+                        await cmd.ExecuteNonQueryAsync();
                         return;
                     }
                     catch (SqlException e)

@@ -2,39 +2,40 @@
 using System.Collections.Generic;
 using Cocktail.Repository;
 using Cocktail.Model;
+using System.Threading.Tasks;
 
 namespace Cocktail.Service
 {
     public class IngredientService
     {
-        public List<Ingredient> GetAllIngredients()
+        public async Task<List<Ingredient>> GetAllIngredientsAsync()
         {
             var ingredientRepository = new IngredientRepository();
-            return ingredientRepository.GetAllIngredients();
+            return await ingredientRepository.GetAllIngredientsAsync();
         }
 
-        public Ingredient GetOneIngredient(Guid ingredientID)
+        public async Task<Ingredient> GetOneIngredientAsync(Guid ingredientID)
         {
             var ingredientRepository = new IngredientRepository();
-            return ingredientRepository.GetOneIngredient(ingredientID);
+            return await ingredientRepository.GetOneIngredientAsync(ingredientID);
         }
 
-        public Ingredient AddIngredient(Ingredient ingredient)
+        public async Task<Ingredient> AddIngredientAsync(Ingredient ingredient)
         {
             var ingredientRepository = new IngredientRepository();
-            return ingredientRepository.AddIngredient(ingredient);
+            return await ingredientRepository.AddIngredientAsync(ingredient);
         }
 
-        public Ingredient UpdateIngredient(Guid ingredientID, Ingredient Ingredient)
+        public async Task<Ingredient> UpdateIngredientAsync(Guid ingredientID, Ingredient Ingredient)
         {
             var ingredientRepository = new IngredientRepository();
-            return ingredientRepository.UpdateIngredient(ingredientID, Ingredient);
+            return await ingredientRepository.UpdateIngredientAsync(ingredientID, Ingredient);
         }
 
-        public void DeleteIngredient(Guid ingredientID)
+        public async Task DeleteIngredientAsync(Guid ingredientID)
         {
             var IngredientRepository = new IngredientRepository();
-            IngredientRepository.DeleteIngredient(ingredientID);
+            await IngredientRepository.DeleteIngredientAsync(ingredientID);
         }
     }
 }

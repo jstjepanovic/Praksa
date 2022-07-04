@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Cocktail.Model;
 using Cocktail.Service;
@@ -14,10 +15,10 @@ namespace Cocktail.WebAPI.Controllers
         // GET ALL
         [HttpGet]
         [Route("get_all_cocktails")]
-        public HttpResponseMessage GetAllCocktails()
+        public async Task<HttpResponseMessage> GetAllCocktailsAsync()
         {
             var cocktailService = new CocktailService();
-            var allCocktails = cocktailService.GetAllCocktails();
+            var allCocktails = await cocktailService.GetAllCocktailsAsync();
             var allCocktailsRest = new List<CocktailRest>();
             foreach (var cocktail in allCocktails)
                 allCocktailsRest.Add(new CocktailRest(cocktail.Name, cocktail.Price));
@@ -27,60 +28,61 @@ namespace Cocktail.WebAPI.Controllers
         // GET ONE
         [HttpGet]
         [Route("get_one_cocktail")]
-        public HttpResponseMessage GetOneCocktail(Guid cocktailID)
+        public async Task<HttpResponseMessage> GetOneCocktailAsync(Guid cocktailID)
         {
             var cocktailService = new CocktailService();
-            var cocktail = cocktailService.GetOneCocktail(cocktailID);
+            var cocktail = await cocktailService.GetOneCocktailAsync(cocktailID);
             return Request.CreateResponse(HttpStatusCode.OK, cocktail);
         }
 
         // POST 
         [HttpPost]
         [Route("add_cocktail")]
-        public HttpResponseMessage AddCocktail(CocktailRest cocktailCreate)
+        public async Task<HttpResponseMessage> AddCocktailAsync(CocktailRest cocktailCreate)
         {
             var cocktail = new CocktailDB(cocktailCreate.Name, cocktailCreate.Price);
             var cocktailService = new CocktailService();
-            var newCocktail = cocktailService.AddCocktail(cocktail);
+            var newCocktail = await cocktailService.AddCocktailAsync(cocktail);
             return Request.CreateResponse(HttpStatusCode.OK, newCocktail);
         }
 
         // PUT
         [HttpPut]
         [Route("update_cocktail")]
-        public HttpResponseMessage UpdateCocktail([FromUri]Guid cocktailID, [FromBody]CocktailDB cocktail)
+        public async Task<HttpResponseMessage> UpdateCocktailAsync([FromUri]Guid cocktailID, [FromBody]CocktailDB cocktail)
         {
             var cocktailService = new CocktailService();
-            var newCocktail = cocktailService.UpdateCocktail(cocktailID, cocktail);
+            var newCocktail = await cocktailService.UpdateCocktailAsync(cocktailID, cocktail);
             return Request.CreateResponse(HttpStatusCode.OK, newCocktail);
         }
 
         // DELETE 
         [HttpDelete]
         [Route("delete_cocktail")]
-        public HttpResponseMessage DeleteCocktail(Guid cocktailID)
+        public async Task<HttpResponseMessage> DeleteCocktailAsync(Guid cocktailID)
         {
             var cocktailService = new CocktailService();
-            cocktailService.DeleteCocktail(cocktailID);
+            await cocktailService.DeleteCocktailAsync(cocktailID);
             return Request.CreateResponse(HttpStatusCode.OK, "Cocktail deleted.");
         }
 
         [HttpGet]
         [Route("get_all_cocktail_ingredients")]
-        public HttpResponseMessage AllCocktailIngredients(Guid cocktailID)
+        public async Task<HttpResponseMessage> AllCocktailIngredientsAsync(Guid cocktailID)
         {
             var cocktailService = new CocktailService();
-            var cocktailIngredients = cocktailService.AllCocktailIngredients(cocktailID);
+            var cocktailIngredients = await cocktailService.AllCocktailIngredientsAsync(cocktailID);
             return Request.CreateResponse(HttpStatusCode.OK, cocktailIngredients);
         }
-
+        
         [HttpPost]
         [Route("add_cocktail_ingredient")]
-        public HttpResponseMessage AddCocktailIngredient(Guid cocktailID, Guid ingredientID)
+        public async Task<HttpResponseMessage> AddCocktailIngredientAsync(Guid cocktailID, Guid ingredientID)
         {
             var cocktailService = new CocktailService();
-            var cocktailIngredient = cocktailService.AddCocktailIngredient(cocktailID, ingredientID);
+            var cocktailIngredient = await cocktailService.AddCocktailIngredientAsync(cocktailID, ingredientID);
             return Request.CreateResponse(HttpStatusCode.OK, cocktailIngredient);
         }
+        
     }
 }

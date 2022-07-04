@@ -2,51 +2,53 @@
 using Cocktail.Model;
 using Cocktail.Repository;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Cocktail.Service
 {
     public class CocktailService
     {
-        public List<CocktailDB> GetAllCocktails()
+        public async Task<List<CocktailDB>> GetAllCocktailsAsync()
         {
             var cocktailRepository = new CocktailRepository();
-            return cocktailRepository.GetAllCocktails();
+            return await cocktailRepository.GetAllCocktailsAsync();
         }
 
-        public CocktailDB GetOneCocktail(Guid cocktailID)
+        public async Task<CocktailDB> GetOneCocktailAsync(Guid cocktailID)
         {
             var cocktailRepository = new CocktailRepository();
-            return cocktailRepository.GetOneCocktail(cocktailID);
+            return await cocktailRepository.GetOneCocktailAsync(cocktailID);
         }
 
-        public CocktailDB AddCocktail(CocktailDB cocktail)
+        public async Task<CocktailDB> AddCocktailAsync(CocktailDB cocktail)
         {
             var cocktailRepository = new CocktailRepository();
-            return cocktailRepository.AddCocktail(cocktail);
+            return await cocktailRepository.AddCocktailAsync(cocktail);
         }
 
-        public CocktailDB UpdateCocktail(Guid cocktailID, CocktailDB cocktail)
+        public async Task<CocktailDB> UpdateCocktailAsync(Guid cocktailID, CocktailDB cocktail)
         {
             var cocktailRepository = new CocktailRepository();
-            return cocktailRepository.UpdateCocktail(cocktailID, cocktail);
+            return await cocktailRepository.UpdateCocktailAsync(cocktailID, cocktail);
         }
 
-        public void DeleteCocktail(Guid cocktailID)
+        public async Task DeleteCocktailAsync(Guid cocktailID)
         {
             var cocktailRepository = new CocktailRepository();
-            cocktailRepository.DeleteCocktail(cocktailID);
+            await cocktailRepository.DeleteCocktailAsync(cocktailID);
         }
 
-        public CocktailIngredients AllCocktailIngredients(Guid cocktailID)
+        public async Task<CocktailIngredients> AllCocktailIngredientsAsync(Guid cocktailID)
         {
             var cocktailRepository = new CocktailRepository();
-            return cocktailRepository.AllCocktailIngredients(cocktailID);
+            return await cocktailRepository.AllCocktailIngredientsAsync(cocktailID);
         }
-
-        public Tuple<CocktailDB, Ingredient> AddCocktailIngredient(Guid cocktailID, Guid ingredientID)
+        
+        public async Task<CocktailIngredient> AddCocktailIngredientAsync(Guid cocktailID, Guid ingredientID)
         {
             var cocktailRepository = new CocktailRepository();
-            return cocktailRepository.AddCocktailIngredient(cocktailID, ingredientID);
+            return await cocktailRepository.AddCocktailIngredientAsync(cocktailID, ingredientID);
         }
+        
     }
 }
