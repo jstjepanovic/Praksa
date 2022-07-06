@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using Cocktail.Repository;
 using Cocktail.Model;
 using System.Threading.Tasks;
+using Cocktail.Service.Common;
+using Cocktail.Repository.Common;
+using Cocktail.Common;
 
 namespace Cocktail.Service
 {
-    public class IngredientService
+    public class IngredientService : IIngredientService
     {
-        public async Task<List<Ingredient>> GetAllIngredientsAsync()
+        protected IIngredientRepository IngredientRepository;
+
+        public IngredientService(IIngredientRepository ingredientRepository)
+        {
+            this.IngredientRepository = ingredientRepository;
+        }
+        public async Task<List<Ingredient>> GetAllIngredientsAsync(Paging paging, Sorting sorting, IngredientFilter filter)
         {
             var ingredientRepository = new IngredientRepository();
-            return await ingredientRepository.GetAllIngredientsAsync();
+            return await ingredientRepository.GetAllIngredientsAsync(paging, sorting, filter);
         }
 
         public async Task<Ingredient> GetOneIngredientAsync(Guid ingredientID)

@@ -1,13 +1,16 @@
-﻿using Cocktail.Model;
+﻿using Cocktail.Common;
+using Cocktail.Model;
+using Cocktail.Repository.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace Cocktail.Repository
 {
-    public class CocktailRepository
+    public class CocktailRepository : ICocktailRepository
     {
         public string conStr = "Data Source=DESKTOP-RDKIF3O\\SQLEXPRESS;Initial Catalog=PraksaDB;Integrated Security=True"; // connection string
         public async Task<int> CocktailCountAsync(Guid cocktailID)
@@ -35,13 +38,43 @@ namespace Cocktail.Repository
             }
         }
 
-        public async Task<List<CocktailDB>> GetAllCocktailsAsync()
+        public async Task<List<CocktailDB>> GetAllCocktailsAsync(Paging paging, Sorting sorting, CocktailFilter filter)
         {
             SqlConnection con = new SqlConnection(conStr);
             List<CocktailDB> cocktailList = new List<CocktailDB>();
             using (con)
             {
-                SqlCommand command = new SqlCommand("select * from dbo.Cocktail;", con);
+                int offset = (paging.PageNumber - 1) * paging.Rpp;
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+
+                StringBuilder stringBuilder = new StringBuilder("select * from dbo.Cocktail where 1=1 ");
+
+                if (filter.NameSearch != null)
+                {
+                    stringBuilder.Append("and Name like @NameSearch ");
+                    command.Parameters.AddWithValue("@NameSearch", filter.NameSearch);
+                }
+                if (filter.PriceUpper != null)
+                {
+                    stringBuilder.Append("and Price < @PriceUpper ");
+                    command.Parameters.AddWithValue("@PriceUpper", filter.PriceUpper);
+                }
+                if (filter.PriceLower != null)
+                {
+                    stringBuilder.Append("and Price > @PriceLower ");
+                    command.Parameters.AddWithValue("@PriceLower", filter.PriceLower);
+                }
+                
+                stringBuilder.Append(string.Format("order by {0} {1} ", sorting.OrderBy, sorting.SortOrder));
+                stringBuilder.Append("offset @offset rows fetch next @rpp rows only;");
+
+                command.Parameters.AddWithValue("@offset", offset);
+                command.Parameters.AddWithValue("@rpp", paging.Rpp);
+
+                command.CommandText = stringBuilder.ToString();
+
                 await con.OpenAsync();
 
                 SqlDataReader reader = await command.ExecuteReaderAsync();
@@ -51,13 +84,8 @@ namespace Cocktail.Repository
                     while (await reader.ReadAsync())
                         cocktailList.Add(new CocktailDB(reader.GetGuid(0), reader.GetString(1), reader.GetDouble(2)));
                 }
-                else
-                {
-                    reader.Close();
-                    throw new Exception("Empty table.");
-                }
-                reader.Close();
 
+                reader.Close();
                 return cocktailList;
             }
         }

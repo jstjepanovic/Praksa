@@ -1,13 +1,16 @@
-﻿using Cocktail.Model;
+﻿using Cocktail.Common;
+using Cocktail.Model;
+using Cocktail.Repository.Common;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Cocktail.Repository
 {
-    public class IngredientRepository
+    public class IngredientRepository : IIngredientRepository
     {
         public string conStr = "Data Source=DESKTOP-RDKIF3O\\SQLEXPRESS;Initial Catalog=PraksaDB;Integrated Security=True"; // connection string
 
@@ -36,13 +39,38 @@ namespace Cocktail.Repository
             }
         }
 
-        public async Task<List<Ingredient>> GetAllIngredientsAsync()
+        public async Task<List<Ingredient>> GetAllIngredientsAsync(Paging paging, Sorting sorting, IngredientFilter filter)
         {
             SqlConnection con = new SqlConnection(conStr);
             List<Ingredient> ingredientList = new List<Ingredient>();
             using (con)
             {
-                SqlCommand command = new SqlCommand("select * from dbo.Ingredient;", con);
+                int offset = (paging.PageNumber - 1) * paging.Rpp;
+
+                SqlCommand command = new SqlCommand();
+                command.Connection = con;
+
+                StringBuilder stringBuilder = new StringBuilder("select * from dbo.Ingredient where 1=1 ");
+
+                if (filter.NameSearch != null)
+                {
+                    stringBuilder.Append("and Name like @NameSearch ");
+                    command.Parameters.AddWithValue("@NameSearch", filter.NameSearch);
+                }
+                if (filter.ColorSearch != null)
+                {
+                    stringBuilder.Append("and Color like @ColorSearch ");
+                    command.Parameters.AddWithValue("@ColorSearch", filter.ColorSearch);
+                }
+
+                stringBuilder.Append(string.Format("order by {0} {1} ", sorting.OrderBy, sorting.SortOrder));
+                stringBuilder.Append("offset @offset rows fetch next @rpp rows only;");
+
+                command.Parameters.AddWithValue("@offset", offset);
+                command.Parameters.AddWithValue("@rpp", paging.Rpp);
+
+                command.CommandText = stringBuilder.ToString();
+
                 await con.OpenAsync();
 
                 SqlDataReader reader = await command.ExecuteReaderAsync();

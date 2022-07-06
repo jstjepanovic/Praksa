@@ -1,6 +1,8 @@
-﻿namespace Cocktail.Model
+﻿using Cocktail.Model.Common;
+
+namespace Cocktail.Model
 {
-    public class CocktailIngredient
+    public class CocktailIngredient : ICocktailIngredient
     {
         public System.Guid CocktailID { get; set; }
         public string CocktailName { get; set; }

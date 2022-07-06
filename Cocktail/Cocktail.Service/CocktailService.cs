@@ -1,53 +1,54 @@
 ﻿using System;
 using Cocktail.Model;
-using Cocktail.Repository;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cocktail.Service.Common;
+using Cocktail.Repository.Common;
+using Cocktail.Common;
 
 namespace Cocktail.Service
 {
-    public class CocktailService
+    public class CocktailService : ICocktailService
     {
-        public async Task<List<CocktailDB>> GetAllCocktailsAsync()
+        protected ICocktailRepository CocktailRepository;
+
+        public CocktailService(ICocktailRepository cocktailRepository)
         {
-            var cocktailRepository = new CocktailRepository();
-            return await cocktailRepository.GetAllCocktailsAsync();
+            this.CocktailRepository = cocktailRepository;
+        }
+        public async Task<List<CocktailDB>> GetAllCocktailsAsync(Paging paging, Sorting sorting, CocktailFilter filter)
+        {
+            return await CocktailRepository.GetAllCocktailsAsync(paging, sorting, filter);
         }
 
         public async Task<CocktailDB> GetOneCocktailAsync(Guid cocktailID)
         {
-            var cocktailRepository = new CocktailRepository();
-            return await cocktailRepository.GetOneCocktailAsync(cocktailID);
+            return await CocktailRepository.GetOneCocktailAsync(cocktailID);
         }
 
         public async Task<CocktailDB> AddCocktailAsync(CocktailDB cocktail)
         {
-            var cocktailRepository = new CocktailRepository();
-            return await cocktailRepository.AddCocktailAsync(cocktail);
+            return await CocktailRepository.AddCocktailAsync(cocktail);
         }
 
         public async Task<CocktailDB> UpdateCocktailAsync(Guid cocktailID, CocktailDB cocktail)
         {
-            var cocktailRepository = new CocktailRepository();
-            return await cocktailRepository.UpdateCocktailAsync(cocktailID, cocktail);
+            return await CocktailRepository.UpdateCocktailAsync(cocktailID, cocktail);
         }
 
         public async Task DeleteCocktailAsync(Guid cocktailID)
         {
-            var cocktailRepository = new CocktailRepository();
-            await cocktailRepository.DeleteCocktailAsync(cocktailID);
+            await CocktailRepository.DeleteCocktailAsync(cocktailID);
         }
 
         public async Task<CocktailIngredients> AllCocktailIngredientsAsync(Guid cocktailID)
         {
-            var cocktailRepository = new CocktailRepository();
-            return await cocktailRepository.AllCocktailIngredientsAsync(cocktailID);
+            return await CocktailRepository.AllCocktailIngredientsAsync(cocktailID);
         }
         
         public async Task<CocktailIngredient> AddCocktailIngredientAsync(Guid cocktailID, Guid ingredientID)
         {
-            var cocktailRepository = new CocktailRepository();
-            return await cocktailRepository.AddCocktailIngredientAsync(cocktailID, ingredientID);
+            return await CocktailRepository.AddCocktailIngredientAsync(cocktailID, ingredientID);
         }
         
     }

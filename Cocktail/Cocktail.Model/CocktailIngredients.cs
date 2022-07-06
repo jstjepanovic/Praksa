@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using Cocktail.Model.Common;
+using System.Collections.Generic;
 
 namespace Cocktail.Model
 {
-    public class CocktailIngredients
+    public class CocktailIngredients : ICocktailIngredients
     {
         public string Name { get; set; }
         public List<Ingredient> Ingredients { get; set; }

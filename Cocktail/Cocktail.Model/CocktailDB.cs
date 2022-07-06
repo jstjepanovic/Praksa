@@ -1,6 +1,8 @@
-﻿namespace Cocktail.Model
+﻿using Cocktail.Model.Common;
+
+namespace Cocktail.Model
 {
-    public class CocktailDB
+    public class CocktailDB : ICocktailDB
     {
         public System.Guid CocktailID { get; set; }
         public string Name { get; set; }
