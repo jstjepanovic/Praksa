@@ -1,0 +1,17 @@
+button{
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 11px 60px;
+  margin: 0;
+  cursor: pointer;
+  border: none;
+  font-family: TimesNewRoman;
+  border-bottom: none;
+  border-top: none;
+}
+
+button:hover {
+    background-color: lightblue;
+    color: black;
+}

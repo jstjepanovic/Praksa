@@ -1,0 +1,11 @@
+input{
+    border: none;
+    margin: 0;
+    width: 180px;
+    height: 43px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    font-family: TimesNewRoman;
+}

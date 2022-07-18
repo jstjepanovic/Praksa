@@ -1,0 +1,8 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    background-color: lightblue;
+    gap: 10px
+}
+
+.flex-container div:nth-last-child(3) { margin-left: auto }
