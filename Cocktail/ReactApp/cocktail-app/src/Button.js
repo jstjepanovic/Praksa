@@ -3,11 +3,9 @@ import './Button.css';
 
 function Button(props) {
   return (
-    <div>
-        <button type={props.type}>
+        <button type="button">
           {props.buttonTitle}
         </button>
-    </div>
   )
 }
 

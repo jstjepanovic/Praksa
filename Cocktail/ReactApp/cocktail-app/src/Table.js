@@ -1,15 +1,24 @@
 import React from 'react'
 import './Table.css'
 
-function Table(props) {
-    const columnsNumber = props.columnsNumber;
-    let text = '<table border="1"><tr>';
-    for (let i = 0; i < columnsNumber; i++) {
-        text += '<th>' + props.columns[i] + '</th>';
-      }
-    text += '</table></tr>';
+function Table(props) {  
   return (
-    <div dangerouslySetInnerHTML={{ __html: text }}>
+    <div>
+      <table border="2" id="table1Id">
+        <tr>
+          <th>Username</th>
+          <th>Date</th>
+        </tr>
+        {props.list.map((login)=>(
+        login.username !== ""
+        ?
+        <tr>
+          <td>{login.username}</td>
+          <td>{login.date}</td>
+        </tr>
+        : null
+        ))}
+      </table>
     </div>
   )
 }

@@ -5,4 +5,15 @@
     gap: 10px
 }
 
-.flex-container div:nth-last-child(3) { margin-left: auto }
+.submit button{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.submit form{
+    position: absolute;
+    top:0;
+    right: 168px;
+}
+

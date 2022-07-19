@@ -1,0 +1,28 @@
+{
+    "CocktailName":[  
+      {  
+         "id":0,
+         "name":"Mojito"
+      },
+      {  
+         "id":1,
+         "name":"Martini"
+      },
+      {  
+         "id":2,
+         "name":"Old Fashioned"
+      },
+      {  
+         "id":3,
+         "name":"White Russian"
+      },
+      {  
+         "id":4,
+         "name":"Bloody Mary"
+      },
+      {  
+         "id":5,
+         "name":"Mai Tai"
+      }
+   ]
+}
