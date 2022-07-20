@@ -54,7 +54,7 @@ namespace Cocktail.Repository
                 if (filter.NameSearch != null)
                 {
                     stringBuilder.Append("and Name like @NameSearch ");
-                    command.Parameters.AddWithValue("@NameSearch", filter.NameSearch);
+                    command.Parameters.AddWithValue("@NameSearch", "%" + filter.NameSearch + "%");
                 }
                 if (filter.PriceUpper != null)
                 {

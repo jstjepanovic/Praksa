@@ -210,3 +210,6 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Common
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\Cocktail.Common.dll.config
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\AutoMapper.dll
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\AutoMapper.xml
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\System.Web.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.WebAPI\bin\System.Web.Http.Cors.xml

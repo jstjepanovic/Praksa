@@ -43,3 +43,6 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Syste
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\System.Web.Http.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\Cocktail.Model.Common.dll.config
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\System.Web.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Repository\bin\Debug\System.Web.Http.Cors.xml

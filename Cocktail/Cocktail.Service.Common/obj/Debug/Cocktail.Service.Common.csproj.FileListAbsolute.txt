@@ -40,3 +40,6 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\C
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\Cocktail.Common.dll
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\Cocktail.Common.pdb
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\Cocktail.Common.dll.config
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\System.Web.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Service.Common\bin\Debug\System.Web.Http.Cors.xml

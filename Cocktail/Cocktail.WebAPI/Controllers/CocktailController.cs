@@ -25,7 +25,7 @@ namespace Cocktail.WebAPI.Controllers
         // GET ALL
         [HttpGet]
         [Route("get_all_cocktails")]
-        public async Task<HttpResponseMessage> GetAllCocktailsAsync(int rpp = 5,
+        public async Task<HttpResponseMessage> GetAllCocktailsAsync(int rpp = 10,
                                                                     int pageNumber = 1,
                                                                     string orderBy = "Name",
                                                                     string sortOrder = "asc",
@@ -35,17 +35,7 @@ namespace Cocktail.WebAPI.Controllers
         {
             var allCocktails = await CocktailService.GetAllCocktailsAsync(new Paging(rpp, pageNumber), new Sorting(orderBy, sortOrder), new CocktailFilter(nameSearch, priceLower, priceUpper));
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<CocktailDB, CocktailRest>());
-            var mapper = new Mapper(config);
-
-            if (allCocktails.Count() == 0)
-            {
-                return Request.CreateResponse(HttpStatusCode.OK, "No such elements");
-            }
-
-            var allCocktailsRest = mapper.Map<List<CocktailDB>, List<CocktailRest>>(allCocktails);
-
-            return Request.CreateResponse(HttpStatusCode.OK, allCocktailsRest);
+            return Request.CreateResponse(HttpStatusCode.OK, allCocktails);
         }
 
         // GET ONE
@@ -54,14 +44,14 @@ namespace Cocktail.WebAPI.Controllers
         public async Task<HttpResponseMessage> GetOneCocktailAsync(Guid cocktailID)
         {
             var cocktail = await CocktailService.GetOneCocktailAsync(cocktailID);
-            var cocktailRest = new CocktailRest(cocktail.Name, cocktail.Price);
+            var cocktailRest = new CocktailCreateRest(cocktail.Name, cocktail.Price);
             return Request.CreateResponse(HttpStatusCode.OK, cocktailRest);
         }
 
         // POST 
         [HttpPost]
         [Route("add_cocktail")]
-        public async Task<HttpResponseMessage> AddCocktailAsync(CocktailRest cocktailCreate)
+        public async Task<HttpResponseMessage> AddCocktailAsync(CocktailCreateRest cocktailCreate)
         {
             var cocktail = new CocktailDB(cocktailCreate.Name, cocktailCreate.Price);
             var newCocktail = await CocktailService.AddCocktailAsync(cocktail);

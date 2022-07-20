@@ -34,3 +34,6 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Num
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Web.Http.xml
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Web.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model\bin\Debug\System.Web.Http.Cors.xml

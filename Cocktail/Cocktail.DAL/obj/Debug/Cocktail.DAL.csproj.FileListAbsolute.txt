@@ -31,3 +31,6 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\System.Threa
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\System.Web.Http.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\obj\Debug\Cocktail.DAL.csproj.CopyComplete
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\obj\Debug\Cocktail.DAL.csprojAssemblyReference.cache
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\System.Web.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.DAL\bin\Debug\System.Web.Http.Cors.xml

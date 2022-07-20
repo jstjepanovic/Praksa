@@ -32,10 +32,8 @@ namespace Cocktail.WebAPI.Controllers
                                                                     string? colorSearch = null)
         {
             var allIngredients = await IngredientService.GetAllIngredientsAsync(new Paging(rpp, pageNumber), new Sorting(orderBy, sortOrder), new IngredientFilter(nameSearch, colorSearch));
-            var allIngredientsRest = new List<IngredientRest>();
-            foreach (var ingredient in allIngredients)
-                allIngredientsRest.Add(new IngredientRest(ingredient.Name, ingredient.Color));
-            return Request.CreateResponse(HttpStatusCode.OK, allIngredientsRest);
+
+            return Request.CreateResponse(HttpStatusCode.OK, allIngredients);
         }
 
         // GET ONE
@@ -50,7 +48,7 @@ namespace Cocktail.WebAPI.Controllers
         // POST 
         [HttpPost]
         [Route("add_ingredient")]
-        public async Task<HttpResponseMessage> AddIngredientAsync(IngredientRest ingredientCreate)
+        public async Task<HttpResponseMessage> AddIngredientAsync(IngredientCreateRest ingredientCreate)
         {
             var ingredient = new Ingredient(ingredientCreate.Name, ingredientCreate.Color);
             var newIngredient = await IngredientService.AddIngredientAsync(ingredient);

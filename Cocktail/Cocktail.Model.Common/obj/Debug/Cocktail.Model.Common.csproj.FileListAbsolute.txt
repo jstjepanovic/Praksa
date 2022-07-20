@@ -31,3 +31,6 @@ C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\bin\Debug\Sys
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\bin\Debug\System.Web.Http.xml
 C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\obj\Debug\Cocktail.Model.Common.csproj.CopyComplete
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\bin\Debug\System.Web.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\Josip\Desktop\2.god\Praksa\Cocktail\Cocktail.Model.Common\bin\Debug\System.Web.Http.Cors.xml

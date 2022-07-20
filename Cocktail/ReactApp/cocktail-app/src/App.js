@@ -1,15 +1,14 @@
-import './App.css';
-import Navbar from './Navbar';
-import CocktailDD from './CocktailDD';
+import './css/App.css';
+import Navbar from './components/Navbar';
+import CocktailFind from './components/CocktailFind';
+import CocktailCreate from './components/CocktailCreate';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <CocktailDD />
-      <header className="App-header">
-        
-      </header>
+      <CocktailFind />
+      <CocktailCreate />
     </div>
   );
 }
