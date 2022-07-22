@@ -220,7 +220,7 @@ namespace Cocktail.Repository
                     }
                     catch (SqlException e)
                     {
-                        throw new Exception("Sql command error.");
+                        throw new Exception(string.Format("sql error {0}, number {1} ", e.Message, e.Number));
                     }
                 }
             }

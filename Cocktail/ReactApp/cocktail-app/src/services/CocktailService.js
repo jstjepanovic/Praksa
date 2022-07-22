@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const find = (name, min, max) =>{
-    return axios.get(`https://localhost:44393/get_all_cocktails/?nameSearch=${name}&priceLower=${min}&priceUpper=${max}`);
+const find = (name, min, max, rpp) =>{
+    return axios.get(`https://localhost:44393/get_all_cocktails/?nameSearch=${name}&priceLower=${min}&priceUpper=${max}&rpp=${rpp}`);
 };
 
 const get = (cocktailId) =>{
@@ -13,7 +13,7 @@ const create = (cocktail) =>{
 };
 
 const update = (cocktailId, cocktail) =>{
-    return axios.update(`https://localhost:44393/update_cocktail/${cocktailId}`, cocktail);
+    return axios.put(`https://localhost:44393/update_cocktail/${cocktailId}`, cocktail);
 };
 
 const remove = (cocktailId) =>{

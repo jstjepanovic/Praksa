@@ -11,7 +11,7 @@ namespace Cocktail.WebAPI
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:3000", "*", "*");
             config.EnableCors(cors);
 
             // Web API routes

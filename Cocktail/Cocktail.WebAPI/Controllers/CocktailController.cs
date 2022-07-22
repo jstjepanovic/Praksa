@@ -40,7 +40,7 @@ namespace Cocktail.WebAPI.Controllers
 
         // GET ONE
         [HttpGet]
-        [Route("get_one_cocktail")]
+        [Route("get_one_cocktail/{cocktailID}")]
         public async Task<HttpResponseMessage> GetOneCocktailAsync(Guid cocktailID)
         {
             var cocktail = await CocktailService.GetOneCocktailAsync(cocktailID);
@@ -60,16 +60,17 @@ namespace Cocktail.WebAPI.Controllers
 
         // PUT
         [HttpPut]
-        [Route("update_cocktail")]
-        public async Task<HttpResponseMessage> UpdateCocktailAsync([FromUri]Guid cocktailID, [FromBody]CocktailDB cocktail)
+        [Route("update_cocktail/{cocktailID}")]
+        public async Task<HttpResponseMessage> UpdateCocktailAsync([FromUri]Guid cocktailID, [FromBody] CocktailCreateRest cocktailCreate)
         {
+            var cocktail = new CocktailDB(cocktailCreate.Name, cocktailCreate.Price);
             var newCocktail = await CocktailService.UpdateCocktailAsync(cocktailID, cocktail);
             return Request.CreateResponse(HttpStatusCode.OK, newCocktail);
         }
 
         // DELETE 
         [HttpDelete]
-        [Route("delete_cocktail")]
+        [Route("delete_cocktail/{cocktailID}")]
         public async Task<HttpResponseMessage> DeleteCocktailAsync(Guid cocktailID)
         {
             await CocktailService.DeleteCocktailAsync(cocktailID);
